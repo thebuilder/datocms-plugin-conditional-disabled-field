@@ -20,13 +20,14 @@ export async function init() {
 
   // Disable the field after load
   plugin.disableField(fieldPath, runCondition(condition));
+  const matches = condition.matchAll(fieldsRE);
 
-  condition.match(fieldsRE, (t, fieldId) => {
-    // Watch for changes on related fields, and update disabled status
+  for (const [, fieldId] of matches) {
     plugin.addFieldChangeListener(fieldId, () => {
+      if (import.meta.env.DEV) console.log("Field changed", fieldId);
       plugin.disableField(fieldPath, runCondition(condition));
     });
-  });
+  }
 }
 
 init();
