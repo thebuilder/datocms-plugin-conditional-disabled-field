@@ -22,7 +22,7 @@ connect({
       render(<ConfigScreen ctx={ctx} />, ctx);
     }
   },
-  manualFieldExtensions(ctx) {
+  manualFieldExtensions() {
     return [
       {
         id: FIELD_EXTENSION_ID,
@@ -38,8 +38,8 @@ connect({
     if (fieldExtensionId === FIELD_EXTENSION_ID) {
       const params = ctx.parameters as ValidManualExtensionParameters;
       const match = params.targetFieldsApiKey.some((apiKey) => {
-        const value = hasValue(ctx.fieldPath[apiKey]);
-        return params.invert ? value : !value;
+        const value = hasValue(ctx.formValues[apiKey]);
+        return params.invert ? !value : value;
       });
 
       ctx.disableField(ctx.fieldPath, match);
