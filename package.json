@@ -42,7 +42,7 @@
   "datoCmsPlugin": {
     "title": "Conditional Disabled Fields",
     "entryPoint": "dist/index.html",
-    "pluginType": "field_addon"
+    "permissions": []
   },
   "dependencies": {
     "datocms-plugin-sdk": "^0.5.1",
