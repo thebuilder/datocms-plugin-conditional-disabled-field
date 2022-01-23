@@ -1,7 +1,7 @@
 {
   "name": "datocms-plugin-conditional-disabled-field",
   "description": "A plugin for DatoCMS that allows you disable fields conditionally.",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "license": "MIT",
   "homepage": "https://github.com/thebuilder/datocms-plugin-conditional-disabled-field#readme",
   "author": "Daniel Schmidt",
