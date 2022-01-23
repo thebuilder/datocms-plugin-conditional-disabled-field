@@ -38,8 +38,8 @@ connect({
     if (fieldExtensionId === FIELD_EXTENSION_ID) {
       const params = ctx.parameters as ValidManualExtensionParameters;
       const match = params.targetFieldsApiKey.some((apiKey) => {
-        const value = ctx.fieldPath[apiKey];
-        return params.invert ? !!value : !value;
+        const value = hasValue(ctx.fieldPath[apiKey]);
+        return params.invert ? value : !value;
       });
 
       ctx.disableField(ctx.fieldPath, match);
@@ -94,3 +94,12 @@ connect({
     }
   },
 });
+
+function hasValue(value: any) {
+  if (!value) return false;
+  if (typeof value === "string") {
+    return value.length > 0;
+  }
+
+  return !!value;
+}
