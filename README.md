@@ -4,9 +4,7 @@ A plugin for DatoCMS that allows you disable fields conditionally.
 
 ## Configuration
 
-Assign the plugin as a Field Addon, and write a valid expression, that can be
-run in JS using eval function
-(`{some_field_api_name} > 0 && {another_field} < 100`).
+Assign the plugin as a Field Addon, and select the fields that should be defined for it to be toggled.
 
 ## Development
 
